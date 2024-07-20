@@ -1,0 +1,156 @@
+import { useState } from "react";
+import LoginImg from "../../assets/LOgin.png";
+import or from "../../assets/or.png";
+import { FcGoogle } from "react-icons/fc";
+import { NavLink } from "react-router-dom";
+const Register = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  return (
+    <main>
+      <div className="w-full flex">
+        <div className="hidden md:flex md:w-[50%]">
+          <img
+            className="object-cover w-full h-[900px]"
+            src={LoginImg}
+            alt=""
+          />
+        </div>
+        <div className="flex w-full md:w-[50%] items-center flex-col">
+          <h1 className="text-white font-semibold text-[1.8rem] md:text-[3rem] mt-10">
+            Welocme To StayEz !
+          </h1>
+          <h3 className="text-[#03A9F4] text-[1.4rem] md:text-[2rem] md:mt-10">Sign Up</h3>
+          <h3 className="text-white/70 text-[1rem] md:text-[1.2rem] mt-2">
+            Please Create Your Account !
+          </h3>
+          <div className="flex flex-col w-[60%]">
+            <input
+              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
+              placeholder="☻ Enter Name"
+              type="text"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
+              placeholder="☻ Enter Phone Number"
+              type="text"
+              required
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <input
+              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
+              placeholder="✉ Enter Email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
+              placeholder="🔒 Enter password"
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="flex justify-between w-[58%] md:w-[60%]">
+            <h1></h1>
+            <h2 className="text-[#03A9F4]">Forgot Password ?</h2>
+          </div>
+          <div className="mt-5 flex flex-col">
+            <button className="bg-[#03A9F4] text-white rounded-[10px] font-semibold px-8 py-3 mt-5">
+              Register
+            </button>
+            <h1 className="text-white mt-4">
+              Already Have an Account ?
+              <NavLink to="/login">
+                <button>
+                  <span className="text-[#03A9F4]">{" "}Log In !</span>
+                </button>
+              </NavLink>
+            </h1>
+          </div>
+          <div className="mt-5 mb-5 md:mb-0 w-[60%]">
+              <img className="md:h-20  md:object-contain" src={or} alt="" />
+            </div>
+            <div className="mb-5 md:mb-0">
+              <button className="text-white flex items-center space-x-3 py-2 px-5 border-2 border-white/40 rounded-2xl">
+                <FcGoogle className="md:h-10 md:w-16"></FcGoogle> Sign Up with Google
+                Account
+              </button>
+            </div>
+        </div>
+
+        {/* <div className="w-full md:w-[50%] flex flex-col justify-center items-center">
+          <h1 className="text-[2rem] md:text-[2.5rem] lg:text-[5rem] text-white mt-10 font-semibold">
+            Welcome To StayEz
+          </h1>
+          <div className="h-[700px] md:w-[400px] flex-col items-center flex mt-10">
+            <h1 className="text-[#03A9F4] text-[2rem] font-bold mt-5">Login</h1>
+            <h2 className="text-white mt-4">Please enter your Details</h2>
+            <input
+              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
+              placeholder="☻ Enter Name"
+              type="text"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
+              placeholder="✉ Enter Email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
+              placeholder="🔒 Enter password"
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="flex justify-between w-[78%] md:w-[80%]">
+              <h1></h1>
+              <h2 className="text-[#03A9F4]">Forgot Password ?</h2>
+            </div>
+
+            <div className="mt-5 flex flex-col">
+              <button className="bg-[#03A9F4] text-white rounded-[10px] font-semibold px-8 py-3 mt-5">
+                Login
+              </button>
+              <h1 className="text-white mt-4">
+                Don&apos;t Have an Account ?
+                <NavLink to="/register">
+                  <button>
+                    <span className="text-[#03A9F4]"> Sign Up !</span>
+                  </button>
+                </NavLink>
+              </h1>
+            </div>
+            <div className="mt-10">
+              <img className="md:h-20  md:object-contain" src={or} alt="" />
+            </div>
+            <div className="mt-10">
+              <button className="text-white flex items-center space-x-3 py-2 px-5 border-2 border-white/40 rounded-2xl">
+                <FcGoogle className="h-10 w-16"></FcGoogle> Sign In with Google
+                Account
+              </button>
+            </div>
+          </div>
+        </div> */}
+      </div>
+    </main>
+  );
+};
+
+export default Register;
