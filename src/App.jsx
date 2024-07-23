@@ -8,6 +8,7 @@ import Register from "./Pages/Register/Register";
 import Wish from "./Pages/WishList/Wish";
 import Flats from "./Pages/Flats/Flats";
 import SpecificFlat from "./Pages/SpecificFlat/SpecificFlat";
+import About from "./Pages/AboutUs/About";
 function App() {
   return (
     <>
@@ -19,7 +20,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/wishlist" element={<Wish />} />
           <Route path="/flats" element={<Flats />} />
-          <Route path="/flats/1" element={<SpecificFlat />} />
+          <Route path="/flats/:id" element={<SpecificFlat />} />
+          <Route path="/aboutus" element={<About />} />
         </Routes>
         <Footer></Footer>
       </Router>

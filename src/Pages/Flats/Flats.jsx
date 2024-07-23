@@ -116,7 +116,7 @@ const Flats = () => {
       <div className="flex justify-center text-white text-[1.4rem] md:text-[3rem] font-semibold my-8">
         Popular in&nbsp;<span className="text-[#03A9F4]">GHAZIABAD</span>
       </div>
-      <div className="bg-[#012940] h-20 w-full">
+      <div className="bg-[#012940] h-full p-5 md:p-0 md:h-20 w-full">
         <div className="text-white h-full flex flex-col md:flex-row items-center px-5 space-y-4 md:space-y-0 md:space-x-8">
           <button
             onClick={openGenderModal}
@@ -187,7 +187,7 @@ const Flats = () => {
         onRequestClose={closeGenderModal}
         onApply={handleApplyGender}
       />
-      <div className="flex flex-row mt-[150px] md:mt-5">
+      <div className="flex flex-row justify-center mt-[150px] md:mt-5">
         <div className="p-5 justify-center items-center flex flex-col">
           <div>
             {filteredData.length > 0 ? (
