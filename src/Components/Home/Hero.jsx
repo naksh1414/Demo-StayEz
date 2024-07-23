@@ -18,8 +18,7 @@ const Hero = () => {
           available. Co-ed. Girls-only. Boys-<br></br>only. All types of
           residences available. <br /> Co-ed. Girls-only. Boys-only.
         </p>
-        <div className="p-3 md:p-5 mt-10 flex items-center justify-between md:mt-2 rounded-[10px] w-[250px] md:w-[450px] text-white font-semibold bg-white/30">
-          <h1>Find in and Around...</h1>
+        <div className="pt-5 mt-10 flex items-center justify-between md:mt-2 rounded-[10px] w-[250px] md:w-[450px] text-white font-semibold ">
           <Button3 data={"Explore"} path={"/flats"}></Button3>
         </div>
         {/* <input
