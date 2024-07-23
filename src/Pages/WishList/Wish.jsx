@@ -39,15 +39,18 @@ const Wish = () => {
       <h1 className="text-white text-[2.4rem] md:text-[4rem] font-semibold underline leading-loose">
         Wish<span className="text-[#03A9F4]">List</span>
       </h1>
-      <img
-        className="h-[300px] md:h-[500px] w-[300px] md:w-[500px] mb-8"
-        src={WishImg}
-        alt="Wishlist"
-      />
+
       {wishlist.length === 0 ? (
-        <h1 className="text-white text-[1.2rem] md:text-[2rem]">
-          Wishlist is <span className="text-[#03A9F4]">Empty</span>
-        </h1>
+        <div>
+          <img
+            className="h-[300px] md:h-[500px] w-[300px] md:w-[500px] mb-8"
+            src={WishImg}
+            alt="Wishlist"
+          />
+          <h1 className="text-white text-[1.2rem] md:text-[2rem]">
+            Wishlist is <span className="text-[#03A9F4]">Empty</span>
+          </h1>
+        </div>
       ) : (
         <div className="flex flex-col w-full max-w-md">
           {wishlist.map((property) => (
