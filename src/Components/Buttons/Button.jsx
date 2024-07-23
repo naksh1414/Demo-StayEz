@@ -6,7 +6,7 @@ const Button = ({ data, path }) => {
       <button className="bg-[#00A1FF] font-semibold text-white rounded-[20px] py-3 px-8">
         {data}
       </button>
-      ;
+      
     </NavLink>
   );
 };
@@ -20,5 +20,16 @@ export const Button2 = ({ data }) => {
       <IoIosCall className="mr-3"></IoIosCall>
       {data}
     </button>
+  );
+};
+
+export const Button3 = ({ data, path }) => {
+  return (
+    <NavLink to={path}>
+      <button className="bg-[#00A1FF] font-semibold text-white rounded-[10px] py-3 px-8">
+        {data}
+      </button>
+      
+    </NavLink>
   );
 };

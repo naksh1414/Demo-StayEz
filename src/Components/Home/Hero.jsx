@@ -2,23 +2,31 @@ import Carousel from "../Carousel/Carousel";
 import { FaLocationDot } from "react-icons/fa6";
 import pgVector from "../../assets/pgvector.png";
 import bedVector from "../../assets/bedVector.png";
+import { Button3 } from "../Buttons/Button";
+
 const Hero = () => {
   return (
     <main>
       <div className="relative px-5 md:px-[130px] mt-[20px] md:mt-[100px] z-20">
         <h1 className="text-white text-[1.2rem] md:text-[60px] font-semibold">{`You've got 99`}</h1>
-        <h1 className="text-white text-[1.2rem] md:text-[60px] font-semibold">Problems, but</h1>
+        <h1 className="text-white text-[1.2rem] md:text-[60px] font-semibold">
+          Problems, but
+        </h1>
         <h1 className="text-white text-[1.2rem] md:text-[60px] font-semibold">{`brokerage ain't one`}</h1>
         <p className="text-white/50 text-[0.8rem] md:text-[1.2rem]">
           Co-ed. Girls-only. Boys-only. All types of <br /> residences
           available. Co-ed. Girls-only. Boys-<br></br>only. All types of
           residences available. <br /> Co-ed. Girls-only. Boys-only.
         </p>
-        <input
+        <div className="p-3 md:p-5 mt-10 flex items-center justify-between md:mt-2 rounded-[10px] w-[250px] md:w-[450px] text-white font-semibold bg-white/30">
+          <h1>Find in and Around...</h1>
+          <Button3 data={"Explore"} path={"/flats"}></Button3>
+        </div>
+        {/* <input
           type="text"
           className="p-3 md:p-5 mt-5 md:mt-2 rounded-[10px] w-[250px] md:w-[450px] placeholder:text-white placeholder:font-semibold bg-white/30"
           placeholder="Find in and Around..."
-        ></input>
+        ></input> */}
       </div>
       <div className="hidden h-full md:flex ml-[70px] md:mt-[-485px] md:ml-[450px] -z-20">
         <Carousel />
