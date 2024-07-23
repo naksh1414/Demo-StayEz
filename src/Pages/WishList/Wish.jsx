@@ -47,7 +47,7 @@ const Wish = () => {
             src={WishImg}
             alt="Wishlist"
           />
-          <h1 className="text-white text-[1.2rem] md:text-[2rem]">
+          <h1 className="text-white text-center text-[1.2rem] md:text-[2rem]">
             Wishlist is <span className="text-[#03A9F4]">Empty</span>
           </h1>
         </div>
