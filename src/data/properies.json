@@ -72,7 +72,7 @@
     "property_name": "Raj's Place",
     "address1": "Address 3",
     "avl_for": "Both",
-    "dist_from_college": 750,
+    "dist_from_college": 700,
     "room_detail": [{ "washroom": "Yes", "seater": 1 }],
     "starting_price": 8000
   },
