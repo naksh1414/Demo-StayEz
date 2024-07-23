@@ -32,12 +32,12 @@ const Header = () => {
           </NavLink>
           <NavLink to={"/wishlist"}>
             <h1 className="bg-none text-white font-semibold flex items-center">
-              {/* <FaHeart className="text-white bg-none" /> */}
-              Wishlist
+              <FaHeart className="text-white bg-none" />
+              {/* Wishlist */}
             </h1>
           </NavLink>
           {/* <Button2 data={"Request a CallBack"}></Button2> */}
-          <Button data={"Log In"} path={"/login"} />
+          <Button data={"Get Started"} path={"/login"} />
         </div>
       </div>
     </nav>
