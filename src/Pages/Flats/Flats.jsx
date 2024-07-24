@@ -13,13 +13,16 @@ import GenderModal from "../../Components/Modal/GenderModal";
 const Flats = () => {
   const [priceModalIsOpen, setPriceModalIsOpen] = useState(false);
   const [distanceModalIsOpen, setDistanceModalIsOpen] = useState(false);
-  const [selectedPriceRange, setSelectedPriceRange] = useState([6000, Infinity]);
+  const [selectedPriceRange, setSelectedPriceRange] = useState([
+    6000,
+    Infinity,
+  ]);
   const [selectedDistance, setSelectedDistance] = useState(Infinity);
   const [genderModalIsOpen, setGenderModalIsOpen] = useState(false);
   const [selectedGender, setSelectedGender] = useState("both");
   const [wishlist, setWishlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 5;
 
   const openPriceModal = () => setPriceModalIsOpen(true);
   const closePriceModal = () => setPriceModalIsOpen(false);
@@ -62,12 +65,12 @@ const Flats = () => {
   };
 
   useEffect(() => {
-    // Load wishlist items from local storage
     const savedWishlist = JSON.parse(localStorage.getItem("Wishlist")) || [];
     setWishlist(savedWishlist);
   }, []);
 
   const handleAddToWishlist = (property) => {
+    console.log("Adding to wishlist:", property);
     if (wishlist.some((item) => item.id === property.id)) {
       alert("This property is already in your wishlist.");
       return;
@@ -75,6 +78,7 @@ const Flats = () => {
     const newWishlist = [...wishlist, property];
     setWishlist(newWishlist);
     localStorage.setItem("Wishlist", JSON.stringify(newWishlist));
+    alert("Added to Wishlist!");
   };
 
   const filteredData = data.filter((property) => {

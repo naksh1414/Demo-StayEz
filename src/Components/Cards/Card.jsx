@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import { FaFemale } from "react-icons/fa";
 import { FaGenderless } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
-const Card = ({ property, addToWishList }) => {
+const Card = ({ property, onAddToWishlist }) => {
   const {
     property_name,
     address1,
@@ -80,7 +80,7 @@ const Card = ({ property, addToWishList }) => {
             <div>
               <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-5">
                 <button
-                  onClick={addToWishList}
+                  onClick={onAddToWishlist}
                   className="bg-white text-[#03A9F4] py-2 px-3 rounded-md border-2 border-[#03A9F4] hover:border-white hover:bg-[#03A9F4] hover:text-red-600"
                 >
                   <FaHeart />
