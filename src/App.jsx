@@ -8,7 +8,7 @@ import Register from "./Pages/Register/Register";
 import Wish from "./Pages/WishList/Wish";
 import Flats from "./Pages/Flats/Flats";
 import SpecificFlat from "./Pages/SpecificFlat/SpecificFlat";
-import About from "./Pages/AboutUs/About";
+import About from "./Pages/AboutUs/about";
 function App() {
   return (
     <>
