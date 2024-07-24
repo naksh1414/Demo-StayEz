@@ -1,5 +1,4 @@
 import { useState } from "react";
-import FImg from "../../assets/Footer.png";
 import Logo from "../../assets/FooterLogo.png";
 import BtnImg from "../../assets/Play stote and app store icon for website .png";
 import { FaTwitter } from "react-icons/fa";
@@ -9,9 +8,9 @@ import { FaInstagram } from "react-icons/fa";
 const Footer = () => {
   const [email, setEmail] = useState("");
   return (
-    <main className="bg-[#152038] flex-col flex justify-center items-center w-full h-[250px] px-3">
+    <main className="bg-[#152038] flex-col flex justify-center items-center w-full h-[300px] px-3">
       {/* <img className="object-cover w-full" src={FImg} alt="" /> */}
-      <div className="text-white text-[1.2rem] font-semibold flex justify-around w-[80%] mt-10">
+      <div className="text-white text-[1.1rem] font-semibold flex justify-around w-[80%] mt-5">
         <h1>Help</h1>
         <h1>About</h1>
         <h1>Company</h1>
@@ -41,7 +40,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="border-t-2 w-full mt-5 pb-3 flex items-center justify-between">
+      <div className="border-t-2 w-full mt-5 pb-2 flex items-center justify-between">
         <div className="flex justify-between font-semibold space-x-3 w-[200px] mt-3 text-white">
           <h1>Terms</h1>
           <h1>Conditions</h1>
