@@ -19,41 +19,66 @@ const Register = () => {
           />
         </div>
         <div className="flex w-full md:w-[50%] items-center flex-col">
-          <h1 className="text-white font-semibold text-[1.8rem] md:text-[3rem] mt-10">
-            Welocme To StayEz !
+          <h1 className="text-[#03A9F4] font-semibold text-[1.8rem] md:text-[3rem] mt-10">
+            Create an Account
           </h1>
-          <h3 className="text-[#03A9F4] text-[1.4rem] md:text-[2rem] md:mt-10">Sign Up</h3>
-          <h3 className="text-white/70 text-[1rem] md:text-[1.2rem] mt-2">
+          {/* <h3 className="text-[#03A9F4] text-[1.4rem] md:text-[2rem] md:mt-10">Sign Up</h3> */}
+          {/* <h3 className="text-white/70 text-[1rem] md:text-[1.2rem] mt-2">
             Please Create Your Account !
-          </h3>
+          </h3> */}
           <div className="flex flex-col w-[60%]">
+            <label className="text-white font-semibold text-[1.2rem] mt-4">
+              * Name
+            </label>
             <input
-              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
-              placeholder="☻ Enter Name"
+              className="my-2 h-10 bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              placeholder="Full Name"
               type="text"
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
+              aria-required
             />
+            <label className="text-white font-semibold text-[1.2rem] mt-4">
+              * Phone Number{" "}
+            </label>
+
             <input
-              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
-              placeholder="☻ Enter Phone Number"
+              className="my-2 h-10 bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              placeholder="+91 90000009909"
               type="text"
               required
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
+            <label className="text-white font-semibold text-[1.2rem] mt-4">
+              * Email{" "}
+            </label>
             <input
-              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
-              placeholder="✉ Enter Email"
+              className="my-2 h-10 bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              placeholder="StayEz@gmail.com"
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            <label className="text-white font-semibold text-[1.2rem] mt-4">
+              * Password{" "}
+            </label>
             <input
-              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
-              placeholder="🔒 Enter password"
+              className="my-2 h-10  bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              placeholder="************"
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <label className="text-white font-semibold text-[1.2rem] mt-4">
+              * Confirm Password{" "}
+            </label>
+            <input
+              className="my-2 h-10  bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              placeholder="************"
               type="password"
               required
               value={password}
@@ -72,20 +97,20 @@ const Register = () => {
               Already Have an Account ?
               <NavLink to="/login">
                 <button>
-                  <span className="text-[#03A9F4]">{" "}Log In !</span>
+                  <span className="text-[#03A9F4]"> Log In !</span>
                 </button>
               </NavLink>
             </h1>
           </div>
-          <div className="mt-5 mb-5 md:mb-0 w-[60%]">
-              <img className="md:h-20  md:object-contain" src={or} alt="" />
-            </div>
-            <div className="mb-5 md:mb-0">
-              <button className="text-white flex items-center space-x-3 py-2 px-5 border-2 border-white/40 rounded-2xl">
-                <FcGoogle className="md:h-10 md:w-16"></FcGoogle> Sign Up with Google
-                Account
-              </button>
-            </div>
+          <div className="mt-3 mb-5 md:mb-0 w-[60%]">
+            <img className="md:h-20  md:object-contain" src={or} alt="" />
+          </div>
+          <div className="mb-5 md:mb-4">
+            <button className="text-white flex items-center space-x-3 py-2 px-5 border-2 border-white/40 rounded-2xl">
+              <FcGoogle className="md:h-10 md:w-16"></FcGoogle> Sign Up with
+              Google Account
+            </button>
+          </div>
         </div>
 
         {/* <div className="w-full md:w-[50%] flex flex-col justify-center items-center">

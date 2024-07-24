@@ -17,29 +17,38 @@ const Login = () => {
           />
         </div>
         <div className="w-full md:w-[50%] flex flex-col items-center">
-          <h1 className="text-[2rem] md:text-[2.5rem] lg:text-[5rem] text-white mt-10 font-semibold">
+          <h1 className="text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] text-white mt-10 font-semibold">
             Welcome Back
           </h1>
-          <div className="h-[700px] md:w-[400px] flex-col items-center flex mt-10">
-            <h1 className="text-[#03A9F4] text-[2rem] font-bold mt-5">Login</h1>
-            <h2 className="text-white mt-4">Please enter your Details</h2>
+          <div className="h-[700px] md:w-[400px] flex-col flex mt-5">
+            <h1 className="text-[#03A9F4] text-[2.5rem] text-center font-bold mt-5">
+              Login
+            </h1>
+            <label className="text-white font-semibold text-[1.2rem] mt-4">
+              * Email{" "}
+            </label>
             <input
-              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
-              placeholder="✉ Enter Email"
+              className="my-2 h-10 bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              placeholder="StayEz@gmail.com"
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              aria-required
             />
+            <label className="text-white font-semibold text-[1.2rem] mt-4">
+              * Password{" "}
+            </label>
             <input
-              className="my-5 h-10 rounded-[10px] p-5 placeholder:text-[black]"
-              placeholder="🔒 Enter password"
+              className="my-2 h-10 bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              placeholder="***************"
               type="password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              aria-required
             />
-            <div className="flex justify-between w-[78%] md:w-[80%]">
+            <div className="flex justify-between w-[100%] md:w-[100%]">
               <h1></h1>
               <h2 className="text-[#03A9F4]">Forgot Password ?</h2>
             </div>
@@ -60,7 +69,7 @@ const Login = () => {
             <div className="mt-10">
               <img className="md:h-20  md:object-contain" src={or} alt="" />
             </div>
-            <div className="mt-10">
+            <div className="mt-10 flex justify-center">
               <button className="text-white flex items-center space-x-3 py-2 px-5 border-2 border-white/40 rounded-2xl">
                 <FcGoogle className="h-10 w-16"></FcGoogle> Sign In with Google
                 Account
