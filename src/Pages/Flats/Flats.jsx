@@ -108,8 +108,8 @@ const Flats = () => {
 
   return (
     <main>
-      <div className="flex justify-center text-white text-[1.4rem] md:text-[3rem] font-semibold my-8">
-        Popular in&nbsp;<span className="text-[#03A9F4]">GHAZIABAD</span>
+      <div className="flex justify-center text-white text-[1.4rem] md:text-[2.8rem] font-semibold my-8">
+        Popular in&nbsp;<span className="text-[#03A9F4] underline">GHAZIABAD</span>
       </div>
       <div className="bg-[#012940] h-full p-5 md:p-0 md:h-20 w-full">
         <div className="text-white h-full flex flex-col md:flex-row items-center px-5 space-y-4 md:space-y-0 md:space-x-8">

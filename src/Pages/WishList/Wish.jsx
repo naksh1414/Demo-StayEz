@@ -52,7 +52,7 @@ const Wish = () => {
           </h1>
         </div>
       ) : (
-        <div className="flex flex-col w-full max-w-md">
+        <div className="flex flex-col md:flex-row justify-center w-full">
           {wishlist.map((property) => (
             <Card
               key={property.id}

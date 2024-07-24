@@ -8,8 +8,8 @@ const Hero = () => {
   return (
     <main>
       <div className="relative px-5 md:px-[130px] mt-[20px] md:mt-[100px] z-20">
-        <h1 className="text-white text-[1.2rem] md:text-[60px] font-semibold">{`You've got 99`}</h1>
-        <h1 className="text-white text-[1.2rem] md:text-[60px] font-semibold">
+        <h1 className="text-white text-[1.1rem] md:text-[58px] font-semibold">{`You've got 99`}</h1>
+        <h1 className="text-white text-[1.1rem] md:text-[58px] font-semibold">
           Problems, but
         </h1>
         <h1 className="text-white text-[1.2rem] md:text-[60px] font-semibold">{`brokerage ain't one`}</h1>
@@ -33,16 +33,16 @@ const Hero = () => {
       <div className="flex items-center p-5 justify-around md:mt-10">
         <div className="mt-10 flex justify-center items-center space-x-3 h-10">
           <FaLocationDot className="text-[#03A9F4] text-[1.2rem] h-20" />
-          <h1 className="text-white md:text-[1.2rem]">30+ Cities</h1>
+          <h1 className="text-white md:text-[1.4rem]">30+ Cities</h1>
         </div>
         <div className="mt-10 flex justify-center items-center space-x-3 h-10">
           {/* <FaLocationDot className="text-white text-[1.2rem] h-20" /> */}
           <img src={pgVector} alt="" />
-          <h1 className="text-white md:text-[1.2rem]">30+ Pg&apos;s</h1>
+          <h1 className="text-white md:text-[1.4rem]">30+ Pg&apos;s</h1>
         </div>
         <div className="mt-10 flex justify-center items-center space-x-3 h-10">
           <img src={bedVector} alt="" />
-          <h1 className="text-white md:text-[1.2rem]">1000+ beds</h1>
+          <h1 className="text-white md:text-[1.4rem]">1000+ beds</h1>
         </div>
       </div>
     </main>

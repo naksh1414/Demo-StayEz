@@ -32,7 +32,7 @@ const Card = ({ property, onAddToWishlist }) => {
         </div>
         <div className="md:w-[65%] text-white p-5">
           <div className="flex justify-between items-center">
-            <h1 className="text-[1rem] md:text-[2rem]">{property_name}</h1>
+            <h1 className="text-[1rem] md:text-[1.8rem]">{property_name}</h1>
             <div
               className={`flex flex-row ${
                 avl_for === "Male"
