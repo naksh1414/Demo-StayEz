@@ -9,6 +9,7 @@ import Wish from "./Pages/WishList/Wish";
 import Flats from "./Pages/Flats/Flats";
 import SpecificFlat from "./Pages/SpecificFlat/SpecificFlat";
 import About from "./Pages/AboutUs/about";
+import Partner from "./Pages/PartnerWithUs/Partner";
 function App() {
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
           <Route path="/flats" element={<Flats />} />
           <Route path="/flats/:id" element={<SpecificFlat />} />
           <Route path="/aboutus" element={<About />} />
+          <Route path="/joinus" element={<Partner />} />
         </Routes>
         <Footer></Footer>
       </Router>

@@ -3,10 +3,17 @@ import LOgo from "../../assets/logo.png";
 import Button from "../Buttons/Button";
 import { Button2 } from "../Buttons/Button";
 // import { RiArrowDropDownLine } from "react-icons/ri";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import NavDrawer from "../../Components/Drawer/NavDrawer";
+import KnowMoreModal from "../Modal/KnowMoreModal";
+import { useState } from "react";
 
 const Header = () => {
+  const [KnowMoreModalIsOpen, setKnowMoreModalIsOpen] = useState(false);
+  const openModal = () => setKnowMoreModalIsOpen(true);
+  const closeModal = () => setKnowMoreModalIsOpen(false);
+
   return (
     <nav className="bg-none border-white border-b-[1.2px]">
       <div className="!z-10 flex flex-row justify-between bg-none p-5">
@@ -20,23 +27,21 @@ const Header = () => {
         </div>
         {/* Navigation links for Tablets and Laptops*/}
         <div className="bg-none hidden md:[text-1rem] lg:text-[1.2rem] md:flex flex-row justify-center items-center space-x-10 pr-10">
-          <NavLink to={"/aboutus"}>
-            <h1 className="text-white font-semibold bg-none flex flex-row justify-center items-center">
-              Know More
-            </h1>
-          </NavLink>
-          <NavLink to={"/flats"}>
-            <h1 className="text-white font-semibold bg-none flex flex-row justify-center items-center">
-              Flats
-            </h1>
-          </NavLink>
+          {/* <NavLink to={"/aboutus"}> */}
+          <button onClick={openModal} className="text-white font-semibold bg-none flex flex-row justify-center items-center">
+            Know More
+            <MdKeyboardArrowDown></MdKeyboardArrowDown>
+          </button>
+          <KnowMoreModal isOpen={KnowMoreModalIsOpen} onRequestClose={closeModal} />
+          {/* </NavLink> */}
+          
           <NavLink to={"/wishlist"}>
             <h1 className="bg-none text-white font-semibold flex items-center">
               <FaHeart className="text-white bg-none" />
               {/* Wishlist */}
             </h1>
           </NavLink>
-          {/* <Button2 data={"Request a CallBack"}></Button2> */}
+          <Button2 data={"Request a CallBack"}></Button2>
           <Button data={"Get Started"} path={"/login"} />
         </div>
       </div>
