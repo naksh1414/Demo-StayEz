@@ -1,7 +1,7 @@
 import HostelImg from "../../assets/HostelPg.png";
 const HostelPg = () => {
   return (
-    <main className="my-[100px] h-full">
+    <main className="mt-10 md:my-[100px] h-full">
       <div className="w-full flex flex-col-reverse md:flex-row-reverse justify-center items-center">
         <div className="w-full md:w-[50%] justify-center items-center">
           <h1 className="text-white text-[1.3rem] md:text-[1.6rem] lg:text-[3.4rem] font-bold md:pl-14 md:pr-28 px-5">

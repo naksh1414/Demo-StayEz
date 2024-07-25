@@ -2,7 +2,6 @@
 import Modal from "react-modal";
 import PropTypes from "prop-types";
 import { IoCloseSharp } from "react-icons/io5";
-import BasicSwitches from "../Switch/switch";
 import { PiWhatsappLogoLight } from "react-icons/pi";
 Modal.setAppElement("#root");
 

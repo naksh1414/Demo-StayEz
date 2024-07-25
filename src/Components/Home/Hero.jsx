@@ -18,7 +18,7 @@ const Hero = () => {
           available. Co-ed. Girls-only. Boys-<br></br>only. All types of
           residences available. <br /> Co-ed. Girls-only. Boys-only.
         </p>
-        <div className="pt-5 mt-10 flex items-center justify-between md:mt-2 rounded-[10px] w-[250px] md:w-[450px] text-white font-semibold ">
+        <div className="pt-5 mt-3 flex items-center justify-between md:mt-2 rounded-[10px] w-[250px] md:w-[450px] text-white font-semibold ">
           <Button3 data={"Explore"} path={"/flats"}></Button3>
         </div>
         {/* <input
@@ -27,10 +27,10 @@ const Hero = () => {
           placeholder="Find in and Around..."
         ></input> */}
       </div>
-      <div className="hidden h-full md:flex ml-[70px] md:mt-[-485px] md:ml-[450px] -z-20">
+      <div className="h-full md:flex w-full mt-[-240px] ml-[140px] md:mt-[-485px] md:ml-[450px] -z-20">
         <Carousel />
       </div>
-      <div className="flex items-center p-5 justify-around md:mt-10">
+      <div className="flex items-center p-5 justify-around mt-[80px] md:mt-10">
         <div className="mt-10 flex justify-center items-center space-x-3 h-10">
           <FaLocationDot className="text-[#03A9F4] text-[1.2rem] h-20" />
           <h1 className="text-white md:text-[1.4rem]">30+ Cities</h1>
