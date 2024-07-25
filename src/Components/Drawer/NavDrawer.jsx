@@ -26,7 +26,7 @@ const NavDrawer = () => {
           {" "}
           <h1>Home</h1>
         </NavLink>
-        <NavLink to={"/"}>
+        <NavLink to={"/aboutus"}>
           <h1>Know More</h1>
         </NavLink>
         <NavLink to={"/flats"}>
