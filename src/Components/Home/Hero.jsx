@@ -6,7 +6,7 @@ import { Button3 } from "../Buttons/Button";
 
 const Hero = () => {
   return (
-    <main>
+    <main className="overflow-hidden">
       <div className="relative px-5 md:px-[130px] mt-[20px] md:mt-[100px] z-20">
         <h1 className="text-white text-[1.1rem] md:text-[58px] font-semibold">{`You've got 99`}</h1>
         <h1 className="text-white text-[1.1rem] md:text-[58px] font-semibold">

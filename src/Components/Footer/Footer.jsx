@@ -8,7 +8,7 @@ import { FaInstagram } from "react-icons/fa";
 const Footer = () => {
   const [email, setEmail] = useState("");
   return (
-    <main className="bg-[#152038] flex-col flex justify-center items-center w-full h-[300px] px-3">
+    <main className="bg-[#152038] flex-col hidden md:flex justify-center items-center w-full h-[300px] px-3">
       {/* <img className="object-cover w-full" src={FImg} alt="" /> */}
       <div className="text-white text-[1.1rem] font-semibold flex justify-around w-[80%] mt-5">
         <h1>Help</h1>
