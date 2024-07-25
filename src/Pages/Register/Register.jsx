@@ -31,7 +31,7 @@ const Register = () => {
               * Name
             </label>
             <input
-              className="my-2 h-10 bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              className="my-2 h-10 bg-transparent border-2 text-white rounded-[10px] p-5 placeholder:text-[white]"
               placeholder="Full Name"
               type="text"
               required
@@ -44,7 +44,7 @@ const Register = () => {
             </label>
 
             <input
-              className="my-2 h-10 bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              className="my-2 h-10 bg-transparent border-2 text-white rounded-[10px] p-5 placeholder:text-[white]"
               placeholder="+91 90000009909"
               type="text"
               required
@@ -55,7 +55,7 @@ const Register = () => {
               * Email{" "}
             </label>
             <input
-              className="my-2 h-10 bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              className="my-2 h-10 bg-transparent border-2 text-white rounded-[10px] p-5 placeholder:text-[white]"
               placeholder="StayEz@gmail.com"
               type="email"
               required
@@ -66,7 +66,7 @@ const Register = () => {
               * Password{" "}
             </label>
             <input
-              className="my-2 h-10  bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              className="my-2 h-10  bg-transparent border-2 text-white rounded-[10px] p-5 placeholder:text-[white]"
               placeholder="************"
               type="password"
               required
@@ -77,7 +77,7 @@ const Register = () => {
               * Confirm Password{" "}
             </label>
             <input
-              className="my-2 h-10  bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+              className="my-2 h-10  bg-transparent border-2 text-white rounded-[10px] p-5 placeholder:text-[white]"
               placeholder="************"
               type="password"
               required

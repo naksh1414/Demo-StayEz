@@ -13,7 +13,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const res = await axios.post(
-        "https://847e-125-21-249-98.ngrok-free.app/main/login",
+        "https://e305-103-77-186-56.ngrok-free.app/main/login/",
         { user: email, password: password },
         { withcredentials: true }
       );
