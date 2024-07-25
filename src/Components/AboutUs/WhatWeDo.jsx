@@ -19,17 +19,23 @@ const WhatWeDo = () => {
               Providing the best services
             </h1>
             <p className="text-white/90 mt-5 text-[1rem] md:text-[1.3rem]">
-              About CompanyVivamus magna justo, lacinia eget consectetur sed,
-              convallis at tellus. Praesent sapien massa, convallis a
-              pellentesque nec, egestas non nisi. Nulla porttitor accumsan
-              tincidunt. Donec rutrum congue leo eget malesuada..
+              StayEz is committed to deliver a seamless and efficient
+              accommodation search experience for students. The platform
+              features handpicked listings of high-quality flats and PGs,
+              specifically curated to meet student needs. With the advanced
+              search filters, users can easily narrow down options by location,
+              budget and amenities, ensuring they find the most suitable
+              accommodations with minimal effort.
             </p>
             <p className="text-white/80 mt-5 text-[1rem] md:text-[1.3rem]">
-              Vivamus magna justo, lacinia eget consectetur sed, convallis at
-              tellus. Praesent sapien massa, convallis a pellentesque nec,
-              egestas non nisi. Nulla porttitor accumsan tincidunt. Donec rutrum
-              congue leo eget malesuada.. <br /> Professional and Expert Roofing
-              Contractor
+              To enhance the decision-making process, StayEz provides
+              high-resolution imagery that offers a detailed view of both the
+              interiors and exteriors of each property. Additionally, the
+              platform offers comprehensive property insights, including crucial
+              information about amenities, proximity to educational institutions
+              and nearby essential services. These features collectively provide
+              users with a thorough understanding of each option, aiding them in
+              making well-informed and confident choices.
             </p>
           </div>
         </div>

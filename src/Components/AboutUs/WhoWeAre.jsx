@@ -1,4 +1,4 @@
-import Who from "../../assets/Whoweare.png"
+import Who from "../../assets/Whoweare.png";
 const WhoWeAre = () => {
   return (
     <main>
@@ -17,16 +17,20 @@ const WhoWeAre = () => {
             Stays!
           </h1>
           <p className="text-white/90 mt-5 text-[1rem] md:text-[1.3rem]">
-            About CompanyVivamus magna justo, lacinia eget consectetur sed,
-            convallis at tellus. Praesent sapien massa, convallis a pellentesque
-            nec, egestas non nisi. Nulla porttitor accumsan tincidunt. Donec
-            rutrum congue leo eget malesuada..
+            At StayEz, we recognize the complexities students encounter when
+            searching for ideal accommodations near their colleges. Our platform
+            is designed to streamline this process, offering an intuitive
+            interface where students can efficiently find flats and PGs that
+            match their exact requirements.
           </p>
           <p className="text-white/80 mt-5 text-[1rem] md:text-[1.3rem]">
-            Vivamus magna justo, lacinia eget consectetur sed, convallis at
-            tellus. Praesent sapien massa, convallis a pellentesque nec, egestas
-            non nisi. Nulla porttitor accumsan tincidunt. Donec rutrum congue
-            leo eget malesuada.. <br /> Professional and Expert Roofing Contractor
+            The company strives to empower students to find their ideal
+            accommodation near their educational institutions using precise
+            filters, thus eliminating the need for manual searches. Our mission
+            is to ensure their academic success and personal growth while
+            setting up new benchmarks for service excellence. By integrating
+            innovation and technology, we are reshaping the student housing
+            sector and enhancing the overall experience for students.
           </p>
         </div>
         <div className="md:w-[50%] mt-10 p-5 md:p-0 md:mt-20 md:ml-5">
