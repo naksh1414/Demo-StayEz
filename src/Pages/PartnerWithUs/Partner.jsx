@@ -36,7 +36,7 @@ const Partner = () => {
                 * Name
               </label>
               <input
-                className="my-2 h-8 bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+                className="my-2 h-8 bg-transparent text-white border-2 rounded-[10px] p-5 placeholder:text-[white]"
                 placeholder="Full Name"
                 type="text"
                 required
@@ -49,7 +49,7 @@ const Partner = () => {
               </label>
 
               <input
-                className="my-2 h-8 bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+                className="my-2 h-8 bg-transparent text-white border-2 rounded-[10px] p-5 placeholder:text-[white]"
                 placeholder="+91 90000009909"
                 type="text"
                 required
@@ -60,7 +60,7 @@ const Partner = () => {
                 * Email{" "}
               </label>
               <input
-                className="my-2 h-8 bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+                className="my-2 h-8 bg-transparent text-white border-2 rounded-[10px] p-5 placeholder:text-[white]"
                 placeholder="StayEz@gmail.com"
                 type="email"
                 required
@@ -71,7 +71,7 @@ const Partner = () => {
                 * Address{" "}
               </label>
               <input
-                className="my-2 h-8  bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+                className="my-2 h-8  bg-transparent text-white border-2 rounded-[10px] p-5 placeholder:text-[white]"
                 placeholder="99/120 xyz area "
                 type="password"
                 required
@@ -82,7 +82,7 @@ const Partner = () => {
                 * Educational Institute near the property{" "}
               </label>
               <input
-                className="my-2 h-8  bg-transparent border-2 rounded-[10px] p-5 placeholder:text-[white]"
+                className="my-2 h-8  bg-transparent text-white border-2 rounded-[10px] p-5 placeholder:text-[white]"
                 placeholder="IIT muradnagar"
                 type="password"
                 required
