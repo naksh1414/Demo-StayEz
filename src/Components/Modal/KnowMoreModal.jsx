@@ -39,7 +39,6 @@ const KnowMoreModal = ({ isOpen, onRequestClose }) => {
 KnowMoreModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onRequestClose: PropTypes.func.isRequired,
-  onApply: PropTypes.func.isRequired,
 };
 
 export default KnowMoreModal;

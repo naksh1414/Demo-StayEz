@@ -23,11 +23,11 @@ const Login = () => {
         alert("Login successful");
         // Redirect to another page or do something else
       } else {
-        setError(res.data.message || "Login failed");
+        setError(res.data.message || "Login failed ! Bad Network try again later !");
       }
     } catch (error) {
       console.error("Login error", error);
-      setError("An error occurred during login");
+      setError("Bad Network Error Try again Later");
     }
   };
   const handleSubmit = (e) => {
