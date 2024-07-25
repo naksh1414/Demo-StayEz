@@ -27,7 +27,7 @@ const Hero = () => {
           placeholder="Find in and Around..."
         ></input> */}
       </div>
-      <div className="h-full md:flex w-full mt-[-240px] ml-[140px] md:mt-[-485px] md:ml-[450px] -z-20">
+      <div className="h-full md:flex w-full md:w-[1000px] mt-[-240px] ml-[140px] md:mt-[-485px] md:ml-[450px] -z-20">
         <Carousel />
       </div>
       <div className="flex items-center p-5 justify-around mt-[80px] md:mt-10">
