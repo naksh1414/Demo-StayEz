@@ -10,9 +10,11 @@ import Flats from "./Pages/Flats/Flats";
 import SpecificFlat from "./Pages/SpecificFlat/SpecificFlat";
 import About from "./Pages/AboutUs/about";
 import Partner from "./Pages/PartnerWithUs/Partner";
+import { AuthProvider } from "./context/AuthContext";
 function App() {
   return (
     <>
+    <AuthProvider>
       <Router>
         <Header />
         <Routes>
@@ -27,6 +29,7 @@ function App() {
         </Routes>
         <Footer></Footer>
       </Router>
+      </AuthProvider>
     </>
   );
 }

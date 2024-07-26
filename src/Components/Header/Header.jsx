@@ -8,15 +8,25 @@ import { NavLink } from "react-router-dom";
 import NavDrawer from "../../Components/Drawer/NavDrawer";
 import KnowMoreModal from "../Modal/KnowMoreModal";
 import Request from "../Modal/Request";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import AuthContext from "../../context/AuthContext";
 
 const Header = () => {
+  const { isLoggedIn, logout } = useContext(AuthContext);
+  console.log(isLoggedIn)
   const [KnowMoreModalIsOpen, setKnowMoreModalIsOpen] = useState(false);
   const [requestModalIsOpen, setRequestModalIsOpen] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const openModal = () => setKnowMoreModalIsOpen(true);
   const closeModal = () => setKnowMoreModalIsOpen(false);
   const openRequestModal = () => setRequestModalIsOpen(true);
   const closeRequestModal = () => setRequestModalIsOpen(false);
+
+  const handleLogout = () => {
+    logout();
+    // alert("Logged out successfully");
+  };
+
 
   return (
     <nav className="bg-none border-white border-b-[1.2px]">
@@ -59,7 +69,16 @@ const Header = () => {
             onClick={openRequestModal}
             data={"Request a CallBack"}
           ></Button2>
-          <Button data={"Get Started"} path={"/login"} />
+          {isLoggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="bg-red-500 text-white rounded-[10px] font-semibold px-8 py-3"
+            >
+              Logout
+            </button>
+          ) : (
+            <Button data={"Get Started"} path={"/login"} />
+          )}
         </div>
       </div>
     </nav>

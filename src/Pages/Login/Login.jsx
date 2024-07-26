@@ -1,29 +1,39 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import LoginImg from "../../assets/LOgin.png";
 import or from "../../assets/or.png";
 import { FcGoogle } from "react-icons/fc";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import AuthContext from "../../context/AuthContext";
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const { login } = useContext(AuthContext);
   const handleLogin = async () => {
     try {
       const res = await axios.post(
-        "https://e305-103-77-186-56.ngrok-free.app/main/login/",
-        { user: email, password: password },
+        "https://2e5a-125-21-249-98.ngrok-free.app/main/api/token/",
+        { username: email, password: password },
         { withcredentials: true }
       );
       console.log("response", res);
       // Handle success response
       if (res.status === 200) {
         alert("Login successful");
+        // console.log(res.data.refresh);
+        localStorage.setItem("Refresh Token", res.data.refresh);
+        login();
+        navigate("/");
         // Redirect to another page or do something else
       } else {
-        setError(res.data.message || "Login failed ! Bad Network try again later !");
+        setError(
+          res.data.message || "Login failed ! Bad Network try again later !"
+        );
       }
     } catch (error) {
       console.error("Login error", error);
@@ -84,7 +94,11 @@ const Login = () => {
                   className="absolute right-4 top-1/2 transform -translate-y-1/2"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? <AiFillEyeInvisible className="text-white h-6 w-6" /> : <AiFillEye className="text-white h-6 w-6" />}
+                  {showPassword ? (
+                    <AiFillEyeInvisible className="text-white h-6 w-6" />
+                  ) : (
+                    <AiFillEye className="text-white h-6 w-6" />
+                  )}
                 </button>
               </div>
               <div className="flex justify-between w-[100%] md:w-[100%]">
