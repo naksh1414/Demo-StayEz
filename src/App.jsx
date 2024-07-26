@@ -11,24 +11,27 @@ import SpecificFlat from "./Pages/SpecificFlat/SpecificFlat";
 import About from "./Pages/AboutUs/about";
 import Partner from "./Pages/PartnerWithUs/Partner";
 import { AuthProvider } from "./context/AuthContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <>
-    <AuthProvider>
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/wishlist" element={<Wish />} />
-          <Route path="/flats" element={<Flats />} />
-          <Route path="/flats/:id" element={<SpecificFlat />} />
-          <Route path="/aboutus" element={<About />} />
-          <Route path="/joinus" element={<Partner />} />
-        </Routes>
-        <Footer></Footer>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <ToastContainer />
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/wishlist" element={<Wish />} />
+            <Route path="/flats" element={<Flats />} />
+            <Route path="/flats/:id" element={<SpecificFlat />} />
+            <Route path="/aboutus" element={<About />} />
+            <Route path="/joinus" element={<Partner />} />
+          </Routes>
+          <Footer></Footer>
+        </Router>
       </AuthProvider>
     </>
   );

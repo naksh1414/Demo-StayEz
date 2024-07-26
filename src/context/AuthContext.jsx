@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useState, useEffect, useCallback } from "react";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext();
 
@@ -33,7 +34,13 @@ export const AuthProvider = ({ children }) => {
     if (res.status === 200) {
       localStorage.removeItem("Refresh Token");
       setIsLoggedIn(false);
-      alert("Logout successful");
+      toast.error("Successfully Logged out", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        theme: "colored",
+      });
     }
   };
 

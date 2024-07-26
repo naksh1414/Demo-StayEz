@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import AuthContext from "../../context/AuthContext";
+import { toast } from "react-toastify";
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -14,34 +16,101 @@ const Login = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { login } = useContext(AuthContext);
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
   const handleLogin = async () => {
     try {
       const res = await axios.post(
         "https://2e5a-125-21-249-98.ngrok-free.app/main/api/token/",
         { username: email, password: password },
-        { withcredentials: true }
+        { withCredentials: true }
       );
-      console.log("response", res);
-      // Handle success response
+
       if (res.status === 200) {
-        alert("Login successful");
-        // console.log(res.data.refresh);
+        toast.success("Successfully Logged In", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          theme: "colored",
+        });
         localStorage.setItem("Refresh Token", res.data.refresh);
         login();
         navigate("/");
-        // Redirect to another page or do something else
-      } else {
-        setError(
-          res.data.message || "Login failed ! Bad Network try again later !"
-        );
       }
     } catch (error) {
-      console.error("Login error", error);
-      setError("Bad Network Error Try again Later");
+      if (error.response) {
+        console.log(error.response);
+        if (error.response.status === 400) {
+          setError("User doesn't exist. Please register and try again!");
+          toast.error("User doesn't exist. Please register and try again!", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            theme: "colored",
+          });
+        } else if (error.response.status === 404) {
+          setError("Invalid credentials. Please try again!");
+          toast.error("Invalid credentials. Please try again!", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            theme: "colored",
+          });
+        } else {
+          setError("An error occurred. Please try again later.");
+          toast.error("An error occurred. Please try again later.", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            theme: "colored",
+          });
+        }
+      } else {
+        setError("Bad Network Error. Try again later.");
+        toast.error("Bad network error. Please try again after some time", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          theme: "colored",
+        });
+      }
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const trimmedEmail = email.trim();
+    const trimmedPassword = password.trim();
+    if (!trimmedEmail || !trimmedPassword) {
+      setError("Fields cannot be empty or contain only spaces");
+      toast.error("Fields cannot be empty or contain only spaces", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        theme: "colored",
+      });
+      return;
+    }
+    if (!validateEmail(trimmedEmail)) {
+      setError("Invalid email format");
+      toast.error("Invalid email format", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        theme: "colored",
+      });
+      return;
+    }
+
     handleLogin();
   };
 
@@ -65,7 +134,7 @@ const Login = () => {
             </h1>
             <form onSubmit={handleSubmit} className="flex flex-col">
               <label className="text-white font-semibold text-[1.2rem] mt-4">
-                * Email{" "}
+                * Email
               </label>
               <input
                 className="my-2 h-10 bg-transparent text-white border-2 rounded-[10px] p-5 placeholder:text-[white]"
@@ -77,7 +146,7 @@ const Login = () => {
                 aria-required
               />
               <label className="text-white font-semibold text-[1.2rem] mt-4">
-                * Password{" "}
+                * Password
               </label>
               <div className="relative">
                 <input
