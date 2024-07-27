@@ -2,8 +2,8 @@ import Carousel from "../Carousel/Carousel";
 import { FaLocationDot } from "react-icons/fa6";
 import pgVector from "../../assets/pgvector.png";
 import bedVector from "../../assets/bedVector.png";
-import { Button3 } from "../Buttons/Button";
-
+import { Button2 } from "../Buttons/Button";
+import { IoSearchSharp } from "react-icons/io5";
 const Hero = () => {
   return (
     <main className="overflow-hidden">
@@ -18,14 +18,18 @@ const Hero = () => {
           available. Co-ed. Girls-only. Boys-<br></br>only. All types of
           residences available. <br /> Co-ed. Girls-only. Boys-only.
         </p>
-        <div className="pt-5 mt-3 flex items-center justify-between md:mt-2 rounded-[10px] w-[250px] md:w-[450px] text-white font-semibold ">
-          <Button3 data={"Explore"} path={"/flats"}></Button3>
+        <div className=" absolute left-[190px] md:left-[450px] pt-5 md:pt-2 flex items-center justify-between md:mt-2 rounded-[10px] w-[250px] md:w-[450px] text-white font-semibold ">
+          <Button2
+            data={"Search"}
+            icon={<IoSearchSharp></IoSearchSharp>}
+            path={"/flats"}
+          ></Button2>
         </div>
-        {/* <input
+        <input
           type="text"
           className="p-3 md:p-5 mt-5 md:mt-2 rounded-[10px] w-[250px] md:w-[450px] placeholder:text-white placeholder:font-semibold bg-white/30"
           placeholder="Find in and Around..."
-        ></input> */}
+        ></input>
       </div>
       <div className="h-full md:flex w-full md:w-[1000px] mt-[-240px] ml-[140px] md:mt-[-485px] md:ml-[450px] -z-20">
         <Carousel />

@@ -8,12 +8,13 @@ import { NavLink } from "react-router-dom";
 import NavDrawer from "../../Components/Drawer/NavDrawer";
 import KnowMoreModal from "../Modal/KnowMoreModal";
 import Request from "../Modal/Request";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
+import { IoIosCall } from "react-icons/io";
 
 const Header = () => {
   const { isLoggedIn, logout } = useContext(AuthContext);
-  console.log(isLoggedIn)
+  console.log(isLoggedIn);
   const [KnowMoreModalIsOpen, setKnowMoreModalIsOpen] = useState(false);
   const [requestModalIsOpen, setRequestModalIsOpen] = useState(false);
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -26,7 +27,6 @@ const Header = () => {
     logout();
     // alert("Logged out successfully");
   };
-
 
   return (
     <nav className="bg-none border-white border-b-[1.2px]">
@@ -68,6 +68,7 @@ const Header = () => {
           <Button2
             onClick={openRequestModal}
             data={"Request a CallBack"}
+            icon={<IoIosCall className="mr-3"></IoIosCall>}
           ></Button2>
           {isLoggedIn ? (
             <button

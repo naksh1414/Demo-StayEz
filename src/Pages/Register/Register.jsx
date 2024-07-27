@@ -2,18 +2,40 @@ import { useState } from "react";
 import LoginImg from "../../assets/LOgin.png";
 import or from "../../assets/or.png";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const Register = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [fname, setFName] = useState("");
+  const [lname, setLName] = useState("");
   const [phone, setPhone] = useState("");
+  axios.defaults.withCredentials = true;
+
+  const handleRegister = async () => {
+    const res = await axios.post("", {
+      first_name: fname,
+      last_name: lname,
+      email: email,
+      contact: phone,
+      password: password,
+    });
+    if (res.data.message === "User Registered Succesfully") {
+      alert("User registered successfully.");
+      navigate("/login");
+    } else {
+      alert("Bad network! Backend chutiya hai.");
+    }
+  };
+
   return (
     <main>
       <div className="w-full flex">
         <div className="hidden md:flex md:w-[50%]">
           <img
-            className="object-cover w-full h-[900px]"
+            className="object-cover w-full h-full"
             src={LoginImg}
             alt=""
           />
@@ -28,15 +50,27 @@ const Register = () => {
           </h3> */}
           <div className="flex flex-col w-[60%]">
             <label className="text-white font-semibold text-[1.2rem] mt-4">
-              * Name
+              *First Name
             </label>
             <input
               className="my-2 h-10 bg-transparent border-2 text-white rounded-[10px] p-5 placeholder:text-[white]"
               placeholder="Full Name"
               type="text"
               required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={fname}
+              onChange={(e) => setFName(e.target.value)}
+              aria-required
+            />
+            <label className="text-white font-semibold text-[1.2rem] mt-4">
+              *Last Name
+            </label>
+            <input
+              className="my-2 h-10 bg-transparent border-2 text-white rounded-[10px] p-5 placeholder:text-[white]"
+              placeholder="Full Name"
+              type="text"
+              required
+              value={lname}
+              onChange={(e) => setLName(e.target.value)}
               aria-required
             />
             <label className="text-white font-semibold text-[1.2rem] mt-4">
@@ -90,7 +124,10 @@ const Register = () => {
             <h2 className="text-[#03A9F4]">Forgot Password ?</h2>
           </div>
           <div className="mt-5 flex flex-col">
-            <button className="bg-[#03A9F4] text-white rounded-[10px] font-semibold px-8 py-3 mt-5">
+            <button
+              onClick={handleRegister}
+              className="bg-[#03A9F4] text-white rounded-[10px] font-semibold px-8 py-3 mt-5"
+            >
               Register
             </button>
             <h1 className="text-white mt-4">

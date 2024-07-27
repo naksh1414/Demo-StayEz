@@ -22,8 +22,8 @@ const Card = ({ property, onAddToWishlist }) => {
 
   return (
     <main className="">
-      <div className="w-full md:w-[700px] md:h-[300px] flex flex-col md:flex-row border-2 border-white my-10 rounded-2xl">
-        <div className="md:w-[35%] h-full border-r-2 border-white ">
+      <div className="w-full md:w-[800px] md:h-[300px] flex flex-col md:flex-row border-2 border-[#03A9F4] my-10 rounded-2xl">
+        <div className="md:w-[35%] h-full">
           <img
             className="h-[200px] md:h-full w-full"
             src={imgSrc}
@@ -53,27 +53,27 @@ const Card = ({ property, onAddToWishlist }) => {
             </div>
           </div>
 
-          <h1 className="text-[1rem] md:text-[1.2rem]">{address1}</h1>
-          <div className="bg-white rounded-xl w-[220px] h-8 mt-5 items-center flex px-4">
-            <FaLocationDot className="text-black" />
-            <h1 className="text-black ml-2">
+          <h1 className="text-[1rem] text-[#78878F] md:text-[1.2rem]">{address1}</h1>
+          <div className="rounded-xl w-[220px] h-8 mt-2 items-center flex">
+            <FaLocationDot className="text-[#03A9F4]" />
+            <h1 className="text-[#03A9F4] ml-2">
               {dist_from_college / 1000} km away from kiet
             </h1>
           </div>
-          <div className="flex space-x-2">
-            <div className="bg-black/50 border-[1px] border-white rounded-xl w-[120px] h-8 mt-5 items-center flex px-4">
+          <div className="flex flex-col">
+            <div className="rounded-xl w-[120px] h-8 mt-2 items-center flex">
               <FaBath className="text-white mr-2" />
               <h1 className="text-white">{room_detail[0].washroom}</h1>
             </div>
-            <div className="bg-[#03A9F4] border-[1px] border-white rounded-xl w-[120px] h-8 mt-5 items-center flex px-4">
-              <FaBed className="text-black mr-2" />
-              <h1 className="text-black">{room_detail[0].seater}Seater</h1>
+            <div className="rounded-xl w-[120px] h-8 mt-2 items-center flex">
+              <FaBed className="text-white mr-2 " />
+              <h1 className="text-white">{room_detail[0].seater}Seater</h1>
             </div>
           </div>
-          <div className="flex justify-between items-center mt-10">
+          <div className="flex justify-between items-center mt-5">
             <div className="text-white text-[1.1rem]">
               <h1>Starts From</h1>
-              <h1 className="text-[#03A9F4]">
+              <h1 className="text-[#03A9F4] font-semibold text-[1.3rem]">
                 Rs {starting_price.toLocaleString()}/mo*
               </h1>
             </div>
@@ -81,9 +81,10 @@ const Card = ({ property, onAddToWishlist }) => {
               <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-5">
                 <button
                   onClick={onAddToWishlist}
-                  className="bg-white text-[#03A9F4] py-2 px-3 rounded-md border-2 border-[#03A9F4] hover:border-white hover:bg-[#03A9F4] hover:text-red-600"
+                  className="bg-white text-[#03A9F4] py-2 px-3 rounded-md border-2 border-[#03A9F4] hover:border-white hover:bg-[#03A9F4] hover:text-white"
                 >
-                  <FaHeart />
+                  {/* <FaHeart /> */}
+                  Add to wishlist
                 </button>
                 <NavLink to={`/flats/${property.id}`}>
                   <button className="bg-[#03A9F4] border-[1.1px] border-white hover:border-[#03A9F4]  py-2 px-3 rounded-md hover:text-[#03A9F4] hover:bg-white ">
