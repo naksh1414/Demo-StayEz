@@ -14,48 +14,65 @@ import { IoSearchSharp } from "react-icons/io5";
 import { LiaFilterSolid } from "react-icons/lia";
 import Pagination from "../../Components/Pagination/Pagination";
 import MoreFiltersModal from "../../Components/Modal/MoreFiltersModal";
+
 const Flats = () => {
-  const [priceModalIsOpen, setPriceModalIsOpen] = useState(false);
-  const [distanceModalIsOpen, setDistanceModalIsOpen] = useState(false);
+  const [modalState, setModalState] = useState(null);
   const [selectedPriceRange, setSelectedPriceRange] = useState([
     6000,
     Infinity,
   ]);
   const [selectedDistance, setSelectedDistance] = useState(Infinity);
-  const [genderModalIsOpen, setGenderModalIsOpen] = useState(false);
   const [selectedGender, setSelectedGender] = useState("both");
   const [wishlist, setWishlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  const [moreFilterModal, setOpenMoreFilterModal] = useState(false);
-  const openPriceModal = () => setPriceModalIsOpen(true);
-  const closePriceModal = () => setPriceModalIsOpen(false);
-  const openDistanceModal = () => setDistanceModalIsOpen(true);
-  const closeDistanceModal = () => setDistanceModalIsOpen(false);
-  const openGenderModal = () => setGenderModalIsOpen(true);
-  const closeGenderModal = () => setGenderModalIsOpen(false);
-  const openMoreFilterModal = () => setOpenMoreFilterModal(true);
-  const closeMoreFilterModal = () => setOpenMoreFilterModal(false);
+  const [selectedPropertyType, setSelectedPropertyType] = useState([]);
+  const [selectedAmenity, setSelectedAmenity] = useState([]);
+  const [selectedNearCollege, setSelectedNearCollege] = useState([]);
+  const [selectedPayDuration, setSelectedPayDuration] = useState([]);
+  const [selectedMessFacility, setSelectedMessFacility] = useState([]);
+
+  const handleApplyMoreFilters = (filters) => {
+    setSelectedPropertyType(filters.propertyType);
+    setSelectedAmenity(filters.amenity);
+    setSelectedNearCollege(filters.nearCollege);
+    setSelectedPayDuration(filters.payDuration);
+    setSelectedMessFacility(filters.messFacility);
+    setModalState(null);
+  };
   const handleApplyPriceRange = (range) => {
     setSelectedPriceRange(range);
-    closePriceModal();
+    setModalState(null);
   };
 
   const handleApplyDistance = (distance) => {
     setSelectedDistance(distance);
-    closeDistanceModal();
+    setModalState(null);
   };
 
   const handleApplyGender = (gender) => {
     setSelectedGender(gender);
-    closeGenderModal();
+    setModalState(null);
   };
 
   const handleRemoveFilters = () => {
     setSelectedPriceRange([6000, Infinity]);
     setSelectedDistance(Infinity);
     setSelectedGender("both");
+    setSelectedPropertyType([]);
+    setSelectedAmenity([]);
+    setSelectedNearCollege([]);
+    setSelectedPayDuration([]);
+    setSelectedMessFacility([]);
   };
+
+  // const handleRemoveMoreFilters = () => {
+  //   setSelectedPropertyType([]);
+  //   setSelectedAmenity([]);
+  //   setSelectedNearCollege([]);
+  //   setSelectedPayDuration([]);
+  //   setSelectedMessFacility([]);
+  // };
 
   const handleRemovePriceFilter = () => {
     setSelectedPriceRange([6000, Infinity]);
@@ -94,8 +111,32 @@ const Flats = () => {
     const matchesGender =
       selectedGender === "both" ||
       property.avl_for.toLowerCase() === selectedGender.toLowerCase();
+    const matchesPropertyType =
+      selectedPropertyType.length === 0 ||
+      selectedPropertyType.includes(property.property_type);
+    const matchesAmenity =
+      selectedAmenity.length === 0 ||
+      selectedAmenity.every((amenity) => property.amenities.includes(amenity));
+    const matchesNearCollege =
+      selectedNearCollege.length === 0 ||
+      selectedNearCollege.includes(property.near_college);
+    const matchesPayDuration =
+      selectedPayDuration.length === 0 ||
+      selectedPayDuration.includes(property.rnt_pay_duration);
+    const matchesMessFacility =
+      selectedMessFacility.length === 0 ||
+      property.mess_facility === selectedMessFacility[0];
 
-    return matchesPrice && matchesDistance && matchesGender;
+    return (
+      matchesPrice &&
+      matchesDistance &&
+      matchesGender &&
+      matchesPropertyType &&
+      matchesAmenity &&
+      matchesNearCollege &&
+      matchesPayDuration &&
+      matchesMessFacility
+    );
   });
 
   const handlePageChange = (newPage) => {
@@ -136,20 +177,20 @@ const Flats = () => {
       <div className="bg-[#224260] h-full p-5 md:p-0 md:h-20 w-full">
         <div className="text-white h-full flex flex-col md:flex-row items-center px-5 space-y-4 md:space-y-0 md:space-x-8">
           <button
-            onClick={openGenderModal}
+            onClick={() => setModalState("gender")}
             className="bg-[#0477C0]/30 w-[120px] h-12 justify-center border-2 border-white rounded-full flex items-center"
           >
             Gender <MdArrowDropDown className="w-8 h-8" />
           </button>
           <button
-            onClick={openPriceModal}
+            onClick={() => setModalState("price")}
             className="bg-[#0477C0]/30 border-2 border-white w-[120px] h-12 justify-center rounded-full flex items-center"
           >
             <FaRupeeSign className="w-6 h-6" />
             Price
           </button>
           <button
-            onClick={openDistanceModal}
+            onClick={() => setModalState("distance")}
             className="bg-[#0477C0]/30 w-[120px] h-12 justify-center rounded-full border-2 border-white flex items-center"
           >
             <RiPinDistanceFill className="w-6 h-6" />
@@ -157,7 +198,7 @@ const Flats = () => {
           </button>
           <div className="bg-white w-[2px] h-14"></div>
           <button
-            onClick={openMoreFilterModal}
+            onClick={() => setModalState("moreFilters")}
             className="bg-[#0477C0]/30 border-2 border-white w-fit h-12 justify-center px-6 rounded-full flex items-center"
           >
             <LiaFilterSolid className="h-6 w-6" />
@@ -197,23 +238,24 @@ const Flats = () => {
         </div>
       </div>
       <PriceRangeModal
-        isOpen={priceModalIsOpen}
-        onRequestClose={closePriceModal}
+        isOpen={modalState === "price"}
+        onRequestClose={() => setModalState(null)}
         onApply={handleApplyPriceRange}
       />
       <DistanceModal
-        isOpen={distanceModalIsOpen}
-        onRequestClose={closeDistanceModal}
+        isOpen={modalState === "distance"}
+        onRequestClose={() => setModalState(null)}
         onApply={handleApplyDistance}
       />
       <GenderModal
-        isOpen={genderModalIsOpen}
-        onRequestClose={closeGenderModal}
+        isOpen={modalState === "gender"}
+        onRequestClose={() => setModalState(null)}
         onApply={handleApplyGender}
       />
       <MoreFiltersModal
-        isOpen={moreFilterModal}
-        onRequestClose={closeMoreFilterModal}
+        isOpen={modalState === "moreFilters"}
+        onRequestClose={() => setModalState(null)}
+        onApply={handleApplyMoreFilters}
       />
       <div className="flex flex-row justify-center mt-[150px] md:mt-5">
         <div className="p-5 justify-center items-center flex flex-col">

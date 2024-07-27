@@ -1,4 +1,3 @@
-import { toFormData } from "axios";
 import PropTypes from "prop-types";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
@@ -26,7 +25,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       >
         <IoIosArrowForward className="h-6 w-6 text-white" />
       </button>
-      <span className="text-white">{totalPages} pages </span>
+      <span className="text-white pr-2">{totalPages} Pages </span>
     </div>
   );
 };

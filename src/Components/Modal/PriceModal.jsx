@@ -20,7 +20,7 @@ const PriceRangeModal = ({ isOpen, onRequestClose, onApply }) => {
       className="modal-content"
       overlayClassName="modal-overlay"
     >
-      <div className="h-[250px] w-[400px] bg-black px-4 py-6 rounded absolute top-[350px] left-[400px]">
+      <div className="h-[250px] w-[400px] bg-[#395376]/80 px-4 py-6 rounded-2xl border-white border-[1.2px]  absolute top-[450px] left-[150px]">
         <h2 className="text-xl text-white font-semibold mb-4">Set Price Range</h2>
         <div className="flex flex-col space-y-4">
           <div className="flex items-center">

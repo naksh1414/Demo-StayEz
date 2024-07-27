@@ -19,11 +19,11 @@ const DistanceModal = ({ isOpen, onRequestClose, onApply }) => {
       className="modal-content"
       overlayClassName="modal-overlay"
     >
-      <div className="h-[200px] w-[400px] bg-black px-4 py-6 rounded absolute top-[350px] left-[400px]">
+      <div className="h-[200px] w-[400px] border-white border-[1.2px] bg-[#395376]/80 px-4 py-6 rounded-2xl absolute top-[450px] left-[300px]">
         <h2 className="text-xl text-white font-semibold mb-4">Set Distance</h2>
         <div className="flex flex-col space-y-4">
-          <div className="flex items-center">
-            <label className="mr-2 text-white">Distance:</label>
+          <div className="flex flex-col">
+            <label className="mr-2 text-white">Distance: (in Km)</label>
             <input
               type="number"
               value={distance}
