@@ -6,7 +6,9 @@
     "avl_for": "Male",
     "dist_from_college": 500,
     "room_detail": [{ "washroom": "Yes", "seater": 2 }],
-    "starting_price": 10000
+    "starting_price": 10000,
+    "property_type": "Shared Flat"
+
   },
   {
     "id": 2,
@@ -23,8 +25,8 @@
     "avl_for": "Female",
     "address1": "Murad Nagar",
     "near_college": "KIET Group of Institutions , Ghaziabad",
-    "mess_facility": "Available (Compulsory)",
-    "rnt_pay_duration": "Quaterly",
+    "mess_facility": "Available",
+    "rnt_pay_duration": "Quarterly",
     "property_type": "Independent Flat",
     "starting_price": 6000.0,
     "dist_from_college": 1500.0,
@@ -53,10 +55,6 @@
     ],
     "ppty_amenity": [
       {
-        "id": 4,
-        "amenity_name": "AC"
-      },
-      {
         "id": 5,
         "amenity_name": "RO"
       },
@@ -74,7 +72,18 @@
     "avl_for": "Both",
     "dist_from_college": 700,
     "room_detail": [{ "washroom": "Yes", "seater": 1 }],
-    "starting_price": 8000
+    "starting_price": 8000,
+    "rnt_pay_duration": "Monthly",
+    "ppty_amenity": [
+      {
+        "id": 4,
+        "amenity_name": "AC"
+      },
+      {
+        "id": 6,
+        "amenity_name": "Cooler"
+      }
+    ]
   },
   {
     "id": 4,

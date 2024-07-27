@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import { IoCloseSharp } from "react-icons/io5";
 import PropTypes from "prop-types";
 
-const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
+const MoreFiltersModal = ({
+  isOpen,
+  onRequestClose,
+  onApply,
+  selectedPropertyType,
+  selectedAmenity,
+  selectedNearCollege,
+  selectedPayDuration,
+  selectedMessFacility,
+}) => {
   const [filters, setFilters] = useState({
     propertyType: [],
     amenity: [],
@@ -11,6 +20,22 @@ const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
     payDuration: [],
     messFacility: [],
   });
+
+  useEffect(() => {
+    setFilters({
+      propertyType: selectedPropertyType,
+      amenity: selectedAmenity,
+      nearCollege: selectedNearCollege,
+      payDuration: selectedPayDuration,
+      messFacility: selectedMessFacility,
+    });
+  }, [
+    selectedPropertyType,
+    selectedAmenity,
+    selectedNearCollege,
+    selectedPayDuration,
+    selectedMessFacility,
+  ]);
 
   const handleCheckboxChange = (category, value) => {
     setFilters((prevFilters) => {
@@ -47,6 +72,7 @@ const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
               <label>
                 <input
                   type="checkbox"
+                  checked={filters.propertyType.includes("Independent Flat")}
                   onChange={() =>
                     handleCheckboxChange("propertyType", "Independent Flat")
                   }
@@ -56,6 +82,7 @@ const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
               <label>
                 <input
                   type="checkbox"
+                  checked={filters.propertyType.includes("Shared Flat")}
                   onChange={() =>
                     handleCheckboxChange("propertyType", "Shared Flat")
                   }
@@ -65,6 +92,7 @@ const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
               <label>
                 <input
                   type="checkbox"
+                  checked={filters.propertyType.includes("PG")}
                   onChange={() => handleCheckboxChange("propertyType", "PG")}
                 />{" "}
                 PG
@@ -72,9 +100,8 @@ const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
               <label>
                 <input
                   type="checkbox"
-                  onChange={() =>
-                    handleCheckboxChange("propertyType", "Hostel")
-                  }
+                  checked={filters.propertyType.includes("Hostel")}
+                  onChange={() => handleCheckboxChange("propertyType", "Hostel")}
                 />{" "}
                 Hostel
               </label>
@@ -86,6 +113,7 @@ const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
               <label>
                 <input
                   type="checkbox"
+                  checked={filters.amenity.includes("AC")}
                   onChange={() => handleCheckboxChange("amenity", "AC")}
                 />{" "}
                 AC
@@ -93,6 +121,7 @@ const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
               <label>
                 <input
                   type="checkbox"
+                  checked={filters.amenity.includes("RO")}
                   onChange={() => handleCheckboxChange("amenity", "RO")}
                 />{" "}
                 RO
@@ -100,6 +129,7 @@ const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
               <label>
                 <input
                   type="checkbox"
+                  checked={filters.amenity.includes("Cooler")}
                   onChange={() => handleCheckboxChange("amenity", "Cooler")}
                 />{" "}
                 Cooler
@@ -113,6 +143,9 @@ const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
               <label>
                 <input
                   type="checkbox"
+                  checked={filters.nearCollege.includes(
+                    "KIET Group of Institutions, Ghaziabad"
+                  )}
                   onChange={() =>
                     handleCheckboxChange(
                       "nearCollege",
@@ -130,15 +163,15 @@ const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
               <label>
                 <input
                   type="checkbox"
-                  onChange={() =>
-                    handleCheckboxChange("payDuration", "Monthly")
-                  }
+                  checked={filters.payDuration.includes("Monthly")}
+                  onChange={() => handleCheckboxChange("payDuration", "Monthly")}
                 />{" "}
                 Monthly
               </label>
               <label>
                 <input
                   type="checkbox"
+                  checked={filters.payDuration.includes("Quarterly")}
                   onChange={() =>
                     handleCheckboxChange("payDuration", "Quarterly")
                   }
@@ -153,6 +186,7 @@ const MoreFiltersModal = ({ isOpen, onRequestClose, onApply }) => {
               <label>
                 <input
                   type="checkbox"
+                  checked={filters.messFacility.includes("Available")}
                   onChange={() =>
                     handleCheckboxChange("messFacility", "Available")
                   }
@@ -185,6 +219,11 @@ MoreFiltersModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onRequestClose: PropTypes.func.isRequired,
   onApply: PropTypes.func.isRequired,
+  selectedPropertyType: PropTypes.array.isRequired,
+  selectedAmenity: PropTypes.array.isRequired,
+  selectedNearCollege: PropTypes.array.isRequired,
+  selectedPayDuration: PropTypes.array.isRequired,
+  selectedMessFacility: PropTypes.array.isRequired,
 };
 
 export default MoreFiltersModal;

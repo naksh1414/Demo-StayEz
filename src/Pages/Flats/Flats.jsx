@@ -116,7 +116,12 @@ const Flats = () => {
       selectedPropertyType.includes(property.property_type);
     const matchesAmenity =
       selectedAmenity.length === 0 ||
-      selectedAmenity.every((amenity) => property.amenities.includes(amenity));
+      (property.ppty_amenity &&
+        selectedAmenity.every((amenity) =>
+          property.ppty_amenity.some(
+            (pptyAmenity) => pptyAmenity.amenity_name === amenity
+          )
+        ));
     const matchesNearCollege =
       selectedNearCollege.length === 0 ||
       selectedNearCollege.includes(property.near_college);
@@ -125,7 +130,7 @@ const Flats = () => {
       selectedPayDuration.includes(property.rnt_pay_duration);
     const matchesMessFacility =
       selectedMessFacility.length === 0 ||
-      property.mess_facility === selectedMessFacility[0];
+      selectedMessFacility.includes(property.mess_facility);
 
     return (
       matchesPrice &&
@@ -256,6 +261,11 @@ const Flats = () => {
         isOpen={modalState === "moreFilters"}
         onRequestClose={() => setModalState(null)}
         onApply={handleApplyMoreFilters}
+        selectedPropertyType={selectedPropertyType}
+        selectedAmenity={selectedAmenity}
+        selectedNearCollege={selectedNearCollege}
+        selectedPayDuration={selectedPayDuration}
+        selectedMessFacility={selectedMessFacility}
       />
       <div className="flex flex-row justify-center mt-[150px] md:mt-5">
         <div className="p-5 justify-center items-center flex flex-col">
