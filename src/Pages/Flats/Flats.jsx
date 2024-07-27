@@ -14,7 +14,8 @@ import { IoSearchSharp } from "react-icons/io5";
 import { LiaFilterSolid } from "react-icons/lia";
 import Pagination from "../../Components/Pagination/Pagination";
 import MoreFiltersModal from "../../Components/Modal/MoreFiltersModal";
-
+import { IoFilterSharp } from "react-icons/io5";
+import AllFiltersModal from "../../Components/Modal/AllFiltersModal";
 const Flats = () => {
   const [modalState, setModalState] = useState(null);
   const [selectedPriceRange, setSelectedPriceRange] = useState([
@@ -158,6 +159,37 @@ const Flats = () => {
 
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
+  const handleRemoveFilter = (filterType) => {
+    switch (filterType) {
+      case "priceRange":
+        setSelectedPriceRange([6000, Infinity]);
+        break;
+      case "distance":
+        setSelectedDistance(Infinity);
+        break;
+      case "gender":
+        setSelectedGender("both");
+        break;
+      case "propertyType":
+        setSelectedPropertyType([]);
+        break;
+      case "amenity":
+        setSelectedAmenity([]);
+        break;
+      case "nearCollege":
+        setSelectedNearCollege([]);
+        break;
+      case "payDuration":
+        setSelectedPayDuration([]);
+        break;
+      case "messFacility":
+        setSelectedMessFacility([]);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <main>
       <div className="flex justify-center mt-10">
@@ -181,6 +213,12 @@ const Flats = () => {
       </div>
       <div className="bg-[#224260] h-full p-5 md:p-0 md:h-20 w-full">
         <div className="text-white h-full flex flex-col md:flex-row items-center px-5 space-y-4 md:space-y-0 md:space-x-8">
+          <button
+            onClick={() => setModalState("allFilters")}
+            className="bg-[#0477C0]/30 w-fit px-4 h-12 justify-center border-2 border-white rounded-full flex items-center"
+          >
+            <IoFilterSharp></IoFilterSharp> Applied Filters
+          </button>
           <button
             onClick={() => setModalState("gender")}
             className="bg-[#0477C0]/30 w-[120px] h-12 justify-center border-2 border-white rounded-full flex items-center"
@@ -266,6 +304,21 @@ const Flats = () => {
         selectedNearCollege={selectedNearCollege}
         selectedPayDuration={selectedPayDuration}
         selectedMessFacility={selectedMessFacility}
+      />
+      <AllFiltersModal
+        isOpen={modalState === "allFilters"}
+        onRequestClose={() => setModalState(null)}
+        filters={{
+          gender: selectedGender,
+          priceRange: selectedPriceRange,
+          distance: selectedDistance,
+          propertyType: selectedPropertyType,
+          amenity: selectedAmenity,
+          nearCollege: selectedNearCollege,
+          payDuration: selectedPayDuration,
+          messFacility: selectedMessFacility,
+        }}
+        onRemoveFilter={handleRemoveFilter}
       />
       <div className="flex flex-row justify-center mt-[150px] md:mt-5">
         <div className="p-5 justify-center items-center flex flex-col">
